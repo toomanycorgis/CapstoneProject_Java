@@ -6,11 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import users.Admin;
-import users.Student;
-import users.Teacher;
-import users.User;
-
 public class AppDAO {
 
 	private Connection connection;
@@ -33,7 +28,7 @@ public class AppDAO {
 			connection = DBConnection.getConnectionToDatabase();
 			insertNewUser = connection.prepareStatement(
 					"INSERT INTO users" 
-					+ "(username, password, firstName, lastName, email, verificationCode, isVerified, userType)" 
+					+ "(userName, password, firstName, lastName, email, verificationCode, isVerified, userType)" 
 					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 			getUser = connection.prepareStatement("SELECT * FROM user" + " WHERE userName LIKE ?");
 //			updateUser = connection.prepareStatement("UPDATE users " 
@@ -51,7 +46,7 @@ public class AppDAO {
 
 	public int insertNewUser(User u) {
 		try {
-			insertNewUser.setString(1, u.userName);
+			insertNewUser.setString(1, u.getUserName());
 			insertNewUser.setString(2, u.getPassword());
 			insertNewUser.setString(3, u.getFirstName());
 			insertNewUser.setString(4, u.getLastName());

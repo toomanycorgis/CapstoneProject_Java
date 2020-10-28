@@ -2,7 +2,7 @@ import java.util.UUID;
 
 public abstract class User {
 	
-	public String userName;
+	private String userName;
 	private String firstName;
 	private String lastName;
 	private String email;

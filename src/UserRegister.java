@@ -12,21 +12,30 @@ public class UserRegister extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter writer = resp.getWriter();
+		AppDAO dao = new AppDAO();
 		
-		Date date  = new Date(System.currentTimeMillis());
+		Date date  = new Date(System.currentTimeMillis()); //not used
+		String timestamp = new Timestamp(date.getTime()).toString(); //not used
 		
-		String logString = req.getParameter("input");
-		String titleString = req.getParameter("title");
-		String timestamp = new Timestamp(date.getTime()).toString();
-				
-		User user = new User();
-		user.setTS(timestamp);
-		user.setContent(logString);
-		user.setTitle(titleString);
+		//getting input from form
+		String userName = req.getParameter("userName");
+		String password = req.getParameter("password");
+		String firstName = req.getParameter("firstName");
+		String lastName = req.getParameter("lastName");
+		String email = req.getParameter("email");
+		String userType = req.getParameter("role");
 		
-		ApplicationDao dao = new ApplicationDao();
+		User user = null;
+		//creating user from form	
+		if(userType.equals("S")) {
+			user = new Student(userName, firstName, lastName, email, password);
+		} else if(userType.equals("A")) {
+			user = new Admin(userName, firstName, lastName, email, password);
+		} else if(userType.equals("T")) {
+			user = new Teacher(userName, firstName, lastName, email, password);
+		}
 		
-		int rows = dao.addUsers(user);
+		int rows = dao.insertNewUser(user);
 		String message;
 		if(rows==0) {
 			message="an error occurred";
