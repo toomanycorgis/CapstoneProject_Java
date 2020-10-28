@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>See you next time!</title>
+<link rel="stylesheet" type="text/css" href="LoginLogoutStyle.css">
 </head>
 <body>
 
