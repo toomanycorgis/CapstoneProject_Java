@@ -4,18 +4,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home</title>
+<title>See you next time!</title>
 </head>
-
 <body>
 
-	<table style="with: 50%">
+<table style="with: 50%">
 	<tr><td>
 	<% String username = request.getParameter("username"); %>
-<a>Welcome   <% out.println(username); %> User!!!! You have logged in. Welcome to your homepage.</a></td></tr>
-<tr></tr><tr><td></td><td></td><td><a href="logout.jsp"><b>Logout</b></a></td></tr>
+<a>Goodbye,   <% out.println(username); %> User!!!! You have logged out. We'll see you next time.</a></td></tr>
 </table>
 
 </body>
-
 </html>
