@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Home</title>
+<link rel="stylesheet" type="text/css" href="LoginLogoutStyle.css">
 </head>
 
 <body>
@@ -13,7 +14,7 @@
 	<tr><td>
 	<% String username = request.getParameter("username"); %>
 <a>Welcome   <% out.println(username); %> User!!!! You have logged in. Welcome to your homepage.</a></td></tr>
-<tr></tr><tr><td></td><td></td><td><a href="register_3.jsp"><b>Logout</b></a></td></tr>
+<tr></tr><tr><td></td><td></td><td><a href="logout.jsp"><b>Logout</b></a></td></tr>
 </table>
 
 </body>
