@@ -1,4 +1,4 @@
-package capstonepackage;
+//package capstonepackage;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class UserLogin
  */
-@WebServlet("/UserLogin")
+//@WebServlet("/UserLogin")
 public class UserLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
