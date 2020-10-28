@@ -23,6 +23,10 @@
 			</table>
 			<input type="submit" value="Login"/>
 </form>
+<br>
+<form action="register.jsp">
+    <input type="submit" value="Register here" />
+</form>
 
 
 </body>
