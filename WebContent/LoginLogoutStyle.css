@@ -74,6 +74,14 @@ img.avatar {
   padding: 16px;
 }
 
+.loggingout {
+  border: 3px solid #400080;
+  display: flex;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+}
+
 span.psw {
   float: right;
   padding-top: 16px;

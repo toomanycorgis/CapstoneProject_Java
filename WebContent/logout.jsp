@@ -7,13 +7,16 @@
 <title>See you next time!</title>
 <link rel="stylesheet" type="text/css" href="LoginLogoutStyle.css">
 </head>
-<body>
-
-<table style="with: 50%">
-	<tr><td>
-	<% String username = request.getParameter("username"); %>
-<a>Goodbye,   <% out.println(username); %> User!!!! You have logged out. We'll see you next time.</a></td></tr>
-</table>
-
-</body>
+	<body>
+		
+		<div class="loggingout">
+			<table style="with: 50%">
+				<tr><td>
+				<% String username = request.getParameter("username");%>
+			<h2>Goodbye, <% out.println(username);%>!</h2>
+			<p>You're now logged out. We'll see you next time.</p>
+			</td></tr>
+			</table>
+		</div>
+	</body>
 </html>
