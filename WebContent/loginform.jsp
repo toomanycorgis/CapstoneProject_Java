@@ -19,7 +19,7 @@
 
 
 	<div id="id01" class="modal"> 
-	  <form class="modal-content animate" action="register_4.jsp" method="post">
+	  <form class="modal-content animate" action="user_login" method="post">
 	    <div class="imgcontainer">
 	      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 	      <img src="img_avatar2.png" alt="Avatar" class="avatar">

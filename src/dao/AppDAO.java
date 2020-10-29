@@ -67,13 +67,13 @@ public class AppDAO {
 		}
 	}
 
-	public int getUser(String userName) {
+	public  ResultSet getUser(String userName) {
 		try {
 			getUser.setString(1, userName);
-			return getUser.executeUpdate();
+			return getUser.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return 0;
+			return null;
 		}
 	}
 	
@@ -117,13 +117,16 @@ public class AppDAO {
 	}
 	
 	public boolean checkPassword(String userName, String password) throws SQLException {
-
-		User u = getUserObject(userName);
-		if (u.getPassword().equals(password)) {
-			return true;
-		} else
-		
+		if (getUser(userName) != null) {
+			User u = getUserObject(userName);
+			if (u.getPassword().equals(password)) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
 		return false;
+		}
 	}
 
 //	public int updateUser(String userName, String password, String firstName, String lastName,

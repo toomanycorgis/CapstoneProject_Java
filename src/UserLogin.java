@@ -34,15 +34,16 @@ public class UserLogin extends HttpServlet {
 		// TODO Auto-generated method stub
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-//		AppDAO dao = new AppDAO();
+		AppDAO dao = new AppDAO();
 		
-		if(username.isEmpty() || password.isEmpty()) {
-			RequestDispatcher req = request.getRequestDispatcher("loginform.jsp");
-			req.include(request, response);
-		} else {
-			RequestDispatcher req = request.getRequestDispatcher("register_4.jsp");
-			req.forward(request, response);
-		}
+//		if(username.isEmpty() || password.isEmpty()) {
+//			RequestDispatcher req = request.getRequestDispatcher("loginform.jsp");
+//			req.include(request, response);
+//		} else {
+//			RequestDispatcher req = request.getRequestDispatcher("register_4.jsp");
+//			System.out.println("In UserLogin");
+//			req.forward(request, response);
+//		}
 		
 //		try {
 //			if(dao.checkPassword(username, password)) {
@@ -76,6 +77,32 @@ public class UserLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		AppDAO dao = new AppDAO();
+		
+		try {
+			if(dao.checkPassword(username, password)) {
+				RequestDispatcher req = request.getRequestDispatcher("register_4.jsp");
+				req.forward(request, response);
+
+			} else {
+				PrintWriter writer = response.getWriter();
+				writer.write("Incorrect username or password!");
+				RequestDispatcher req = request.getRequestDispatcher("loginform.jsp");
+				req.include(request, response);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
