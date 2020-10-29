@@ -14,7 +14,7 @@ pageEncoding="ISO-8859-1"%>
 
 
 <% String username = request.getParameter("username"); %>
-<a><h1>Welcome to Darkspace, <% out.println(username); %> User!</h1></a></td></tr>
+<a><h1>Welcome to Darkspace, <% out.println(username); %>!</h1></a></td></tr>
 
 <a><h3>Your Courses:</h3></a></td></tr>
 
@@ -30,11 +30,11 @@ pageEncoding="ISO-8859-1"%>
     </table>
     
     <ul>
-  <li><a href="#msgboard">Messageboard</a></li>
-  <li><a href="#announce">Announcements</a></li>
+  <li><a href="#msgboard">Student Messageboard</a></li>
+  <li><a href="#announce">View Class Announcements</a></li>
   <li><a href="#grades">Your Grades</a></li>
-  <li><a href="#forms">Forms</a></li>
-  <li><a href="#resources">Resources</a></li>
+  <li><a href="#forms">Print Forms</a></li>
+  <li><a href="#resources">Digital Resources</a></li>
 </ul>
     
 
