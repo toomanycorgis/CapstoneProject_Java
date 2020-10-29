@@ -13,7 +13,7 @@
 	
 	<h2>You've Reached DarkSpace</h2>
 	<div class="enter">
-		<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Enter Site</button>
+		<button type="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Enter Site</button>
 	</div>
 	</form>
 
