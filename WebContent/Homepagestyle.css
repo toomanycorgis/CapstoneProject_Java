@@ -1,0 +1,57 @@
+@charset "ISO-8859-1";
+
+
+body {
+  font-family: Georgia;
+  
+}
+
+h1 {
+	color: black; 
+}
+h2 {
+	color: black;
+	text-align: center;
+}
+h5 {
+	color: black; 
+}
+
+table { 
+	
+	font-family: Georgia;
+	color: green;
+	margin:30px; 
+
+}
+
+input[type = button] {
+
+	 font-weight: bold;
+	 padding: 10px 110px;
+	 color: green; 
+	
+}
+
+textarea {
+	margin-bottom: 100px; 
+}
+
+
+li {
+	color: green;
+	margin: 25px; 
+	font-weight:bold;
+}
+
+a{
+	color:green; 
+}
+
+input[type = submit] {
+
+	 font-weight: bold;
+	 color: black; 
+	 float: center; 
+	
+}
