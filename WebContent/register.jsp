@@ -7,7 +7,7 @@
 <title>User Registration</title>
 </head>
 <body>
-<form action ="RegisterUser" method="post">
+<form action ="user_register" method="post">
     <table style="width: 50%">
         <tr>
             <td>UserName</td>

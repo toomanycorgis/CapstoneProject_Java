@@ -33,7 +33,7 @@ import java.sql.SQLException;
 public class DBConnection {
 
 	private static final String dbUser = "root";
-	private static final String dbPassword = "password";
+	private static final String dbPassword = "Programming123!";
 
 	public static Connection getConnectionToDatabase() {
 		Connection connection = null;
