@@ -36,7 +36,7 @@ public class AppDAO {
 					"INSERT INTO users" 
 					+ "(username, password, firstName, lastName, email, verificationCode, isVerified, userType)" 
 					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-			getUser = connection.prepareStatement("SELECT * FROM user" + " WHERE userName LIKE ?");
+			getUser = connection.prepareStatement("SELECT * FROM users" + " WHERE userName LIKE ?");
 //			updateUser = connection.prepareStatement("UPDATE users " 
 //					+ "SET password=?, firstName=?, lastName=?, email=?, verificationCode=?, isVerified=?, userType=?" 
 //					+ "WHERE userName=?");
@@ -75,6 +75,55 @@ public class AppDAO {
 			e.printStackTrace();
 			return 0;
 		}
+	}
+	
+	public User getUserObject(String userName) throws SQLException {
+
+		getUser.setString(1, userName);
+		ResultSet dbUser =  getUser.executeQuery();
+		User u = null;
+		
+		while (dbUser.next()) {		
+		
+			String firstName = dbUser.getString("firstName");
+			System.out.println(firstName);
+			String lastName = dbUser.getString("lastName");
+			System.out.println(lastName);
+			String email = dbUser.getString("email");
+			String password = dbUser.getString("password");
+			String verificationCode = dbUser.getString("verificationCode");
+			boolean isVerified = dbUser.getBoolean("isVerified");
+			String role = dbUser.getString("userType");
+			System.out.println(role);
+			
+			if (role.equals("S")) {
+				u = new Student(userName, firstName, lastName, email, password);
+				u.setVerificationCode(verificationCode);
+				u.setVerified(isVerified);
+				u.setRole(role);
+			} else if (role.equals("T")) {
+				u = new Teacher(userName, firstName, lastName, email, password);
+				u.setVerificationCode(verificationCode);
+				u.setVerified(isVerified);
+				u.setRole(role);
+			} else if (role.equals("A")) {}
+				u = new Admin(userName, firstName, lastName, email, password);
+				u.setVerificationCode(verificationCode);
+				u.setVerified(isVerified);
+				u.setRole(role);
+		}
+		
+		return u;
+	}
+	
+	public boolean checkPassword(String userName, String password) throws SQLException {
+
+		User u = getUserObject(userName);
+		if (u.getPassword().equals(password)) {
+			return true;
+		} else
+		
+		return false;
 	}
 
 //	public int updateUser(String userName, String password, String firstName, String lastName,
