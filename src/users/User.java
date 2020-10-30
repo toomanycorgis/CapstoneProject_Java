@@ -2,6 +2,8 @@ package users;
 
 import java.util.UUID;
 
+// USER class to store all information  
+
 public abstract class User {
 	
 	public String userName;
