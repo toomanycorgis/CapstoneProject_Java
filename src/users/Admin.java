@@ -1,5 +1,7 @@
 package users;
 
+//Admin class with additional roles set for permissions 
+
 public class Admin extends User {
 	
 	private int adminID;

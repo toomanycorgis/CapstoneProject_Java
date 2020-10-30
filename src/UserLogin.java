@@ -35,41 +35,41 @@ public class UserLogin extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		AppDAO dao = new AppDAO();
-		
-//		if(username.isEmpty() || password.isEmpty()) {
-//			RequestDispatcher req = request.getRequestDispatcher("loginform.jsp");
-//			req.include(request, response);
-//		} else {
-//			RequestDispatcher req = request.getRequestDispatcher("register_4.jsp");
-//			System.out.println("In UserLogin");
-//			req.forward(request, response);
-//		}
-		
-//		try {
-//			if(dao.checkPassword(username, password)) {
-//				RequestDispatcher req = request.getRequestDispatcher("register_4.jsp");
-//				req.forward(request, response);
-//
-//			} else {
-//				PrintWriter writer = response.getWriter();
-//				writer.write("Incorrect username or password!");
-//				RequestDispatcher req = request.getRequestDispatcher("loginform.jsp");
-//				req.include(request, response);
-//			}
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (ServletException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
-		
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
+	
+		/*
+		if(username.isEmpty() || password.isEmpty()) {
+			RequestDispatcher req = request.getRequestDispatcher("loginform.jsp");
+			req.include(request, response);
+		} else {
+			RequestDispatcher req = request.getRequestDispatcher("register_4.jsp");
+			System.out.println("In UserLogin");
+			req.forward(request, response);
+		}
+		
+		try {
+			if(dao.checkPassword(username, password)) {
+				RequestDispatcher req = request.getRequestDispatcher("register_4.jsp");
+				req.forward(request, response);
+
+			} else {
+				PrintWriter writer = response.getWriter();
+				writer.write("Incorrect username or password!");
+				RequestDispatcher req = request.getRequestDispatcher("loginform.jsp");
+				req.include(request, response);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		response.getWriter().append("Served at: ").append(request.getContextPath()); */
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -80,16 +80,16 @@ public class UserLogin extends HttpServlet {
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		AppDAO dao = new AppDAO();
+		AppDAO dao = new AppDAO(); //instantiating object from appDAO class in order to check password again DB
 		
-		try {
+		try { //if username & password exists in the database, move to the next page
 			if(dao.checkPassword(username, password)) {
 				RequestDispatcher req = request.getRequestDispatcher("register_4.jsp");
 				req.forward(request, response);
 
-			} else {
+			} else { //if username/password are incorrect, stay on login page and prompt to try again
 				PrintWriter writer = response.getWriter();
-				writer.write("Incorrect username or password!");
+				//writer.write("Incorrect username or password!");
 				RequestDispatcher req = request.getRequestDispatcher("loginform.jsp");
 				req.include(request, response);
 			}

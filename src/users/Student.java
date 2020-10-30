@@ -1,5 +1,7 @@
 package users;
 
+//Student class with additional roles set for permissions 
+
 public class Student extends User {
 	
 	private int studentID;

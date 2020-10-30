@@ -63,7 +63,7 @@ pageEncoding="ISO-8859-1"%>
 
 <a href="sample_classroom.html"><b>To Classroom</b></a>
 <br>
-<a href="register_3.jsp"><b>Logout</b></a>
+<a href="logout.jsp"><b>Logout</b></a>
 
 
 </html>
