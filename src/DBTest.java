@@ -8,6 +8,9 @@ import users.User;
 public class DBTest {
 
 	public static void main(String[] args) throws SQLException {
+		
+//User u1 = new UserBuilder(setFirstName.("Name").setLastName("Smith").setEmail("123@gmail.com").setPassword("mycatsname").build();
+//User u2 = new UserFactory.createUser.("T"));
 
 //		AppDAO appDAO = new AppDAO();
 //		User u1 = new Teacher("TestTeacher", "Test", "Teacher", "email@aslkdj.com", "password");

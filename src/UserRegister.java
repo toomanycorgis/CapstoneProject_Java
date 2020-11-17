@@ -33,7 +33,7 @@ public class UserRegister extends HttpServlet{
 		
 		User user = null;
 		//creating user from form on the JSP file	
-		if(userType.equals("S")) {
+		if(userType.equals("S")) { //factory replacement
 			user = new Student(userName, firstName, lastName, email, password);
 		} else if(userType.equals("A")) {
 			user = new Admin(userName, firstName, lastName, email, password);
