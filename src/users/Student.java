@@ -7,8 +7,8 @@ public class Student extends User {
 	private int studentID;
 
 	public Student(String userName, String firstName, String lastName, String email, String password) {
-		// TODO Auto-generated constructor stub
 		super(userName, password, email);
+		super.setRole(null);
 	}
 
 	public int getStudentID() {

@@ -7,7 +7,7 @@ public class Teacher extends User {
 
 	public Teacher(String userName, String firstName, String lastName, String email, String password) {
 		super(userName, password, email);
-		// TODO Auto-generated constructor stub
+		super.setRole(null);
 	}
 
 	public int getTeacherID() {

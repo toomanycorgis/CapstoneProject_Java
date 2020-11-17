@@ -8,7 +8,7 @@ public class Admin extends User {
 
 	public Admin(String userName, String firstName, String lastName, String email, String password) {
 		super(userName, password, email);
-		// TODO Auto-generated constructor stub
+		super.setRole(null);
 	}
 
 	public int getAdminID() {
