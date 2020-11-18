@@ -2,7 +2,7 @@ package users;
 
 //Student class with additional roles set for permissions 
 
-public class Student extends User {
+public class Student extends User implements Observer {
 	
 	private int studentID;
 
@@ -18,6 +18,12 @@ public class Student extends User {
 	public void setStudentID(int studentID) {
 		this.studentID = studentID;
 	}
+	
+	public void update(String post) {
+		System.out.println("Received updated post");
+		
+	}
+
 }
 
 
