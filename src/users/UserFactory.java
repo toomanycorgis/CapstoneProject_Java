@@ -9,18 +9,22 @@ package users;
  */
 public class UserFactory {
 	
-	public static User createUser(String userType) {
+	public User createUser(String userType, String userName, String firstName, String lastName, String email, String password) {
+		User user = null;
 		switch (userType) {
-		case "ADMIN": 
+		case "A":
+			user = new Admin(userName, firstName, lastName, email, password);
 			break;
-		case "TEACHER":
+		case "T":
+			user = new Teacher(userName, firstName, lastName, email, password);
 			break;
-		case "STUDENT":
+		case "S":
+			user = new Student(userName, firstName, lastName, email, password);
 			break;
 		default:
 			//exception throw here
 			break;
 		}
-		return null;
+		return user;
 	}
 }

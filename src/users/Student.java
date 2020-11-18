@@ -7,8 +7,8 @@ public class Student extends User {
 	private int studentID;
 
 	public Student(String userName, String firstName, String lastName, String email, String password) {
-		super(userName, password, email);
-		super.setRole(null);
+		super(userName, firstName, lastName, email, password);
+		super.setRole("S");
 	}
 
 	public int getStudentID() {

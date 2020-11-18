@@ -12,6 +12,7 @@ import users.Admin;
 import users.Student;
 import users.Teacher;
 import users.User;
+import users.UserFactory;
 
 public class UserRegister extends HttpServlet{
 	
@@ -31,15 +32,10 @@ public class UserRegister extends HttpServlet{
 		String email = req.getParameter("email");
 		String userType = req.getParameter("role");
 		
+		UserFactory factory = new UserFactory();
 		User user = null;
 		//creating user from form on the JSP file	
-		if(userType.equals("S")) {
-			user = new Student(userName, firstName, lastName, email, password);
-		} else if(userType.equals("A")) {
-			user = new Admin(userName, firstName, lastName, email, password);
-		} else if(userType.equals("T")) {
-			user = new Teacher(userName, firstName, lastName, email, password);
-		}
+		user = factory.createUser(userType, userName, firstName, lastName, email, password);
 		
 		int rows = dao.insertNewUser(user);
 		String message;
