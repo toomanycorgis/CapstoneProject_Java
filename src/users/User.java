@@ -46,12 +46,20 @@ public abstract class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	
+	/*
+	 * factory patterns start for interface
+	 */
 	public String getRole() {
 		return role;
 	}
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
+	/* 
+	 * factory patterns end for interface
+	 */
 	
 	public String getVerificationCode() {
 		return verificationCode;

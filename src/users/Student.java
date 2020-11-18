@@ -6,14 +6,9 @@ public class Student extends User {
 	
 	private int studentID;
 
-	public Student(String userName, String password, String email) {
-		super(userName, password, email);
-		super.setRole("S");
-	}
-
 	public Student(String userName, String firstName, String lastName, String email, String password) {
-		super(userName, firstName, lastName, email, password);
-		super.setRole("S");
+		super(userName, password, email);
+		super.setRole(null);
 	}
 
 	public int getStudentID() {
@@ -23,6 +18,17 @@ public class Student extends User {
 	public void setStudentID(int studentID) {
 		this.studentID = studentID;
 	}
-
-
 }
+
+
+/*
+public Student(String userName, String password, String email) {
+	super(userName, password, email);
+	super.setRole("S");
+}
+
+public Student(String userName, String firstName, String lastName, String email, String password) {
+	super(userName, firstName, lastName, email, password);
+	super.setRole("S");
+}
+ */ 
