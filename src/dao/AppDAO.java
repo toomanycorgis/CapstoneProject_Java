@@ -11,6 +11,7 @@ import users.Admin;
 import users.Student;
 import users.Teacher;
 import users.User;
+import users.UserFactory;
 
 public class AppDAO {
 	
@@ -92,6 +93,7 @@ public class AppDAO {
 	
 	public User getUserObject(String userName) throws SQLException {
 
+		UserFactory factory = new UserFactory();
 		getUser.setString(1, userName);
 		ResultSet dbUser =  getUser.executeQuery();
 		User u = null;
@@ -109,18 +111,7 @@ public class AppDAO {
 			String role = dbUser.getString("userType");
 			System.out.println(role);
 						
-			if (role.equals("S")) {
-				u = new Student(userName, firstName, lastName, email, password);
-				u.setVerificationCode(verificationCode);
-				u.setVerified(isVerified);
-				u.setRole(role);
-			} else if (role.equals("T")) {
-				u = new Teacher(userName, firstName, lastName, email, password);
-				u.setVerificationCode(verificationCode);
-				u.setVerified(isVerified);
-				u.setRole(role);
-			} else if (role.equals("A")) {}
-				u = new Admin(userName, firstName, lastName, email, password);
+				u = factory.createUser(role, userName, firstName, lastName, email, password);
 				u.setVerificationCode(verificationCode);
 				u.setVerified(isVerified);
 				u.setRole(role);
