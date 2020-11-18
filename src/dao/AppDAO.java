@@ -13,6 +13,9 @@ import users.Teacher;
 import users.User;
 
 public class AppDAO {
+	
+	//declaring instance for singleton
+	private static AppDAO dao_instance = null;
 
 	private Connection connection;
 	private PreparedStatement insertNewUser;
@@ -29,7 +32,7 @@ public class AppDAO {
 //  `userType` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
 //  `classroomID
 	
-	public AppDAO() {
+	private AppDAO() {
 		try {
 			connection = DBConnection.getConnectionToDatabase();
 			insertNewUser = connection.prepareStatement(
@@ -45,10 +48,20 @@ public class AppDAO {
 			System.exit(1);
 		}
 	} // end constructor
+	
+	//getInstance method returns static instance (Singleton)
+	public static AppDAO getInstance() 
+    { 
+        if (dao_instance == null) 
+            dao_instance = new AppDAO(); 
+  
+        return dao_instance; 
+    } 
 
-	public Connection getConnection() {
-		return connection;
-	}
+	//does this get used??  I don't think so lol
+//	public Connection getConnection() {
+//		return connection;
+//	}
 
 	public int insertNewUser(User u) {
 		try {
@@ -95,7 +108,7 @@ public class AppDAO {
 			boolean isVerified = dbUser.getBoolean("isVerified");
 			String role = dbUser.getString("userType");
 			System.out.println(role);
-			
+						
 			if (role.equals("S")) {
 				u = new Student(userName, firstName, lastName, email, password);
 				u.setVerificationCode(verificationCode);

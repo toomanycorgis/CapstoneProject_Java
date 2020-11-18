@@ -34,7 +34,7 @@ public class UserLogin extends HttpServlet {
 		// TODO Auto-generated method stub
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		AppDAO dao = new AppDAO();
+		AppDAO dao = AppDAO.getInstance();
 	}
 	
 		/*
@@ -80,7 +80,7 @@ public class UserLogin extends HttpServlet {
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		AppDAO dao = new AppDAO(); //instantiating object from appDAO class in order to check password again DB
+		AppDAO dao = AppDAO.getInstance(); //instantiating object from appDAO class in order to check password again DB
 		
 		try { //if username & password exists in the database, move to the next page
 			if(dao.checkPassword(username, password)) {

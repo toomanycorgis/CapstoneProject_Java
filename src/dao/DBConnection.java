@@ -63,7 +63,7 @@ public class DBConnection {
 		return connection;
 	}
 
-	public static void main(String[] args) {
-		getConnectionToDatabase();
-	}
+//	public static void main(String[] args) {
+//		getConnectionToDatabase();
+//	}
 }

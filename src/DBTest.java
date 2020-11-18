@@ -9,7 +9,7 @@ public class DBTest {
 
 	public static void main(String[] args) throws SQLException {
 
-//		AppDAO appDAO = new AppDAO();
+		AppDAO appDAO = AppDAO.getInstance();
 //		User u1 = new Teacher("TestTeacher", "Test", "Teacher", "email@aslkdj.com", "password");
 //		appDAO.insertNewUser(u1);
 //		appDAO.insertNewUser("JaneDoe2", "Passw0rd", "Jane", "Doe", "jd@mail.com", "123", "0", "S");
@@ -18,10 +18,10 @@ public class DBTest {
 //		for (User user : users) {
 //			System.out.println(user.getUserName() + ": " + user.getRole() + " Is verified: " + user.isVerified());
 //		}
-//		System.out.println("Correct password: " + appDAO.checkPassword("TestTeacher", "password"));
-//		System.out.println("Incorrect password: " + appDAO.checkPassword("TestTeacher", "poop"));
-//		User u = appDAO.getUserObject("TestTeacher");
-//		System.out.println("Got user object: " + u.displayUser(u));
+		System.out.println("Correct password: " + appDAO.checkPassword("TestTeacher", "password"));
+		System.out.println("Incorrect password: " + appDAO.checkPassword("TestTeacher", "poop"));
+		User u = appDAO.getUserObject("TestTeacher");
+		System.out.println("Got user object: " + u.displayUser(u));
 	}
 
 }

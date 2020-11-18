@@ -18,7 +18,7 @@ public class UserRegister extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter writer = resp.getWriter();
-		AppDAO dao = new AppDAO(); //instantiating db object 
+		AppDAO dao = AppDAO.getInstance(); //instantiating db object by accessing instance
 		
 		Date date  = new Date(System.currentTimeMillis()); //not used currently
 		String timestamp = new Timestamp(date.getTime()).toString(); //not used currently 
