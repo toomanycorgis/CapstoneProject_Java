@@ -43,7 +43,11 @@ public class UserRegister extends HttpServlet{
 		} else {
 			message = "User added successfully. " + rows + " rows affected"; //adds user & prints console message confirming
 		}
-		writer.write("<html><h2>" + message + "</h2></html>");
+		writer.write("<html><h2>" + message + "</h2>"
+				+ "<form action=\"loginform.jsp\">"
+				+ "<input type=\"submit\" value=\"Back to login\" />"
+				+ "</form>"
+				+ "</html>");
 		
 		
 	}
