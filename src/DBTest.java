@@ -18,10 +18,15 @@ public class DBTest {
 //		for (User user : users) {
 //			System.out.println(user.getUserName() + ": " + user.getRole() + " Is verified: " + user.isVerified());
 //		}
-		System.out.println("Correct password: " + appDAO.checkPassword("TestTeacher", "password"));
-		System.out.println("Incorrect password: " + appDAO.checkPassword("TestTeacher", "poop"));
-		User u = appDAO.getUserObject("TestTeacher");
-		System.out.println("Got user object: " + u.displayUser(u));
+//		System.out.println("Correct password: " + appDAO.checkPassword("TestTeacher", "password"));
+//		System.out.println("Incorrect password: " + appDAO.checkPassword("TestTeacher", "poop"));
+//		User u = appDAO.getUserObject("TestTeacher");
+//		System.out.println("Got user object: " + u.displayUser(u));
+		
+		System.out.println(appDAO.userExists("TestTeacher"));
+		System.out.println(appDAO.userExists("kasjdhksdjfbidsjhf"));
 	}
 
 }
+
+//JEN NOTE TO SELF:  Clearly != null is a bad way to check for this.  research this and implement fix in AppDAO, and for checkPassword too

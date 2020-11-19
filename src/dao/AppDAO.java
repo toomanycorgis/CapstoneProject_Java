@@ -93,8 +93,8 @@ public class AppDAO {
 	}
 	
 	//returns whether or not that user exists in the DB
-	public boolean userExists(String userName) {
-		if (getUser(userName) != null) {
+	public boolean userExists(String userName) throws SQLException {
+		if (getUser(userName).next()) {
 			return true;
 		}
 		else return false;
