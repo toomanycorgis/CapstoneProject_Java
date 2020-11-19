@@ -101,6 +101,7 @@ public class UserLogin extends HttpServlet {
 				PrintWriter writer = response.getWriter();
 				writer.write("Username does not exist in database");
 				RequestDispatcher req = request.getRequestDispatcher("loginform.jsp");
+				response.setContentType("text/html");
 				req.include(request, response);
 			}
 		} catch (SQLException e) {
