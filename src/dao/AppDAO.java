@@ -11,8 +11,12 @@ import users.Admin;
 import users.Student;
 import users.Teacher;
 import users.User;
+import users.UserFactory;
 
 public class AppDAO {
+	
+	//declaring instance for singleton
+	private static AppDAO dao_instance = null;
 
 	private Connection connection;
 	private PreparedStatement insertNewUser;
@@ -29,9 +33,9 @@ public class AppDAO {
 //  `userType` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
 //  `classroomID
 	
-	public AppDAO() {
+	private AppDAO() {
 		try {
-			connection = DBConnection.getConnectionToDatabase();
+			connection = DBConnectionProxy.getConnectionToDatabase();
 			insertNewUser = connection.prepareStatement(
 					"INSERT INTO users" 
 					+ "(username, password, firstName, lastName, email, verificationCode, isVerified, userType)" 
@@ -45,10 +49,20 @@ public class AppDAO {
 			System.exit(1);
 		}
 	} // end constructor
+	
+	//getInstance method returns static instance (Singleton)
+	public static AppDAO getInstance() 
+    { 
+        if (dao_instance == null) 
+            dao_instance = new AppDAO(); 
+  
+        return dao_instance; 
+    } 
 
-	public Connection getConnection() {
-		return connection;
-	}
+	//does this get used??  I don't think so lol
+//	public Connection getConnection() {
+//		return connection;
+//	}
 
 	public int insertNewUser(User u) {
 		try {
@@ -67,6 +81,7 @@ public class AppDAO {
 		}
 	}
 
+	//gets a DB record of a user as a ResultSet
 	public  ResultSet getUser(String userName) {
 		try {
 			getUser.setString(1, userName);
@@ -77,8 +92,18 @@ public class AppDAO {
 		}
 	}
 	
+	//returns whether or not that user exists in the DB
+	public boolean userExists(String userName) throws SQLException {
+		if (getUser(userName).next()) {
+			return true;
+		}
+		else return false;
+	}
+	
+	//returns a user object of a DB record
 	public User getUserObject(String userName) throws SQLException {
 
+		UserFactory factory = new UserFactory();
 		getUser.setString(1, userName);
 		ResultSet dbUser =  getUser.executeQuery();
 		User u = null;
@@ -95,19 +120,8 @@ public class AppDAO {
 			boolean isVerified = dbUser.getBoolean("isVerified");
 			String role = dbUser.getString("userType");
 			System.out.println(role);
-			
-			if (role.equals("S")) {
-				u = new Student(userName, firstName, lastName, email, password);
-				u.setVerificationCode(verificationCode);
-				u.setVerified(isVerified);
-				u.setRole(role);
-			} else if (role.equals("T")) {
-				u = new Teacher(userName, firstName, lastName, email, password);
-				u.setVerificationCode(verificationCode);
-				u.setVerified(isVerified);
-				u.setRole(role);
-			} else if (role.equals("A")) {}
-				u = new Admin(userName, firstName, lastName, email, password);
+						
+				u = factory.createUser(role, userName, firstName, lastName, email, password);
 				u.setVerificationCode(verificationCode);
 				u.setVerified(isVerified);
 				u.setRole(role);

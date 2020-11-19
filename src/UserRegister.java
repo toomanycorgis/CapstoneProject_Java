@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,13 +13,14 @@ import users.Admin;
 import users.Student;
 import users.Teacher;
 import users.User;
+import users.UserFactory;
 
 public class UserRegister extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter writer = resp.getWriter();
-		AppDAO dao = new AppDAO(); //instantiating db object 
+		AppDAO dao = AppDAO.getInstance(); //instantiating db object by accessing instance
 		
 		Date date  = new Date(System.currentTimeMillis()); //not used currently
 		String timestamp = new Timestamp(date.getTime()).toString(); //not used currently 
@@ -31,24 +33,33 @@ public class UserRegister extends HttpServlet{
 		String email = req.getParameter("email");
 		String userType = req.getParameter("role");
 		
+		UserFactory factory = new UserFactory();
 		User user = null;
-		//creating user from form on the JSP file	
-		if(userType.equals("S")) {
-			user = new Student(userName, firstName, lastName, email, password);
-		} else if(userType.equals("A")) {
-			user = new Admin(userName, firstName, lastName, email, password);
-		} else if(userType.equals("T")) {
-			user = new Teacher(userName, firstName, lastName, email, password);
-		}
+		user = factory.createUser(userType, userName, firstName, lastName, email, password);
 		
-		int rows = dao.insertNewUser(user);
-		String message;
-		if(rows==0) { //error message throws
-			message="an error occurred";
-		} else {
-			message = "User added successfully. " + rows + " rows affected"; //adds user & prints console message confirming
+		String message = "";
+		
+		try {
+			if (dao.userExists(userName)){
+				message = "Username already in use, new account not created.";
+			} else {
+				int rows = dao.insertNewUser(user);
+				
+				if(rows==0) { //error message throws
+					message="an error occurred";
+				} else {
+					message = "User added successfully. " + rows + " rows affected"; //adds user & prints console message confirming
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		writer.write("<html><h2>" + message + "</h2></html>");
+		writer.write("<html><h2>" + message + "</h2>"
+				+ "<form action=\"loginform.jsp\">"
+				+ "<input type=\"submit\" value=\"Back to login\" />"
+				+ "</form>"
+				+ "</html>");
 		
 		
 	}

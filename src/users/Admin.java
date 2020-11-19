@@ -7,8 +7,8 @@ public class Admin extends User {
 	private int adminID;
 
 	public Admin(String userName, String firstName, String lastName, String email, String password) {
-		super(userName, password, email);
-		super.setRole(null);
+		super(userName, firstName, lastName, email, password);
+		super.setRole("A");
 	}
 
 	public int getAdminID() {

@@ -8,8 +8,8 @@ public class Teacher extends User implements Subject {
 	private int teacherID;
 
 	public Teacher(String userName, String firstName, String lastName, String email, String password) {
-		super(userName, password, email);
-		super.setRole(null);
+		super(userName, firstName, lastName, email, password);
+		super.setRole("T");
 	}
 
 	public int getTeacherID() {

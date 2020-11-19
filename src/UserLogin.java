@@ -34,7 +34,9 @@ public class UserLogin extends HttpServlet {
 		// TODO Auto-generated method stub
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		AppDAO dao = new AppDAO();
+		
+		//I don't think this one is used
+		//AppDAO dao = AppDAO.getInstance();
 	}
 	
 		/*
@@ -80,17 +82,26 @@ public class UserLogin extends HttpServlet {
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		AppDAO dao = new AppDAO(); //instantiating object from appDAO class in order to check password again DB
+		AppDAO dao = AppDAO.getInstance(); //instantiating object from appDAO class in order to check password again DB
 		
 		try { //if username & password exists in the database, move to the next page
-			if(dao.checkPassword(username, password)) {
-				RequestDispatcher req = request.getRequestDispatcher("register_4.jsp");
-				req.forward(request, response);
-
-			} else { //if username/password are incorrect, stay on login page and prompt to try again
+			if(dao.userExists(username)) { //check if username is valid
+				//if username & password match the database, move to the next page
+				if(dao.checkPassword(username, password)) {
+					RequestDispatcher req = request.getRequestDispatcher("register_4.jsp");
+					req.forward(request, response);
+	
+				} else { //if username/password are incorrect, stay on login page and prompt to try again
+					PrintWriter writer = response.getWriter();
+					writer.write("Incorrect username or password!");
+					RequestDispatcher req = request.getRequestDispatcher("loginform.jsp");
+					req.include(request, response);
+				}
+			} else { //if the username does not exist in the database
 				PrintWriter writer = response.getWriter();
-				//writer.write("Incorrect username or password!");
+				writer.write("Username does not exist in database");
 				RequestDispatcher req = request.getRequestDispatcher("loginform.jsp");
+				response.setContentType("text/html");
 				req.include(request, response);
 			}
 		} catch (SQLException e) {
