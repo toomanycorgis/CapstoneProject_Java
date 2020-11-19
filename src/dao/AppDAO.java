@@ -35,7 +35,7 @@ public class AppDAO {
 	
 	private AppDAO() {
 		try {
-			connection = DBConnection.getConnectionToDatabase();
+			connection = DBConnectionProxy.getConnectionToDatabase();
 			insertNewUser = connection.prepareStatement(
 					"INSERT INTO users" 
 					+ "(username, password, firstName, lastName, email, verificationCode, isVerified, userType)" 
