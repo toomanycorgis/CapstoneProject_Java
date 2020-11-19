@@ -1,5 +1,7 @@
 package users;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
+
 //Teacher class with additional roles set for permissions 
 public class Teacher extends User implements Subject {
 	
@@ -31,7 +33,7 @@ public class Teacher extends User implements Subject {
         System.out.println(subscriber + " has stopped following post updates");
 	  }
 	  
-	@Override
+   @Override
    public void notifySubscribers() {
     System.out.println("new post added");
     for(Observer subscriber: subscribers) {

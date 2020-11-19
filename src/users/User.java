@@ -2,9 +2,11 @@ package users;
 
 import java.util.UUID;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
+
 // USER class to store all information  
 
-public abstract class User {
+public class User {
 	
 	public String userName;
 	private String firstName;
@@ -73,7 +75,7 @@ public abstract class User {
 	public void setVerified(boolean isVerified) {
 		this.isVerified = isVerified;
 	}
-	public User (String userName, String firstName, String lastName, 
+	public User(String userName, String firstName, String lastName, 
 			String email, String password) {
 		this.userName = userName;
 		this.firstName = firstName;
