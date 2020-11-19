@@ -28,39 +28,49 @@ public class UserRegister extends HttpServlet{
 		//getting input from form
 		String userName = req.getParameter("userName");
 		String password = req.getParameter("password");
+		String password2 = req.getParameter("password2");
 		String firstName = req.getParameter("firstName");
 		String lastName = req.getParameter("lastName");
 		String email = req.getParameter("email");
 		String userType = req.getParameter("role");
 		
-		UserFactory factory = new UserFactory();
-		User user = null;
-		user = factory.createUser(userType, userName, firstName, lastName, email, password);
+		//check to make sure passwords match
+		if (password.contentEquals(password2)) {
 		
-		String message = "";
-		
-		try {
-			if (dao.userExists(userName)){
-				message = "Username already in use, new account not created.";
-			} else {
-				int rows = dao.insertNewUser(user);
-				
-				if(rows==0) { //error message throws
-					message="an error occurred";
+			UserFactory factory = new UserFactory();
+			User user = null;
+			user = factory.createUser(userType, userName, firstName, lastName, email, password);
+			
+			String message = "";
+			
+			try {
+				if (dao.userExists(userName)){
+					message = "Username already in use, new account not created.";
 				} else {
-					message = "User added successfully. " + rows + " rows affected"; //adds user & prints console message confirming
+					int rows = dao.insertNewUser(user);
+					
+					if(rows==0) { //error message throws
+						message="an error occurred";
+					} else {
+						message = "User added successfully. " + rows + " rows affected"; //adds user & prints console message confirming
+					}
 				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			writer.write("<html><h2>" + message + "</h2>"
+					+ "<form action=\"loginform.jsp\">"
+					+ "<input type=\"submit\" value=\"Back to login\" />"
+					+ "</form>"
+					+ "</html>");
+		} else {
+			writer.write("<html><h2>" + "Passwords did not match" + "</h2>"
+					+ "<form action=\"loginform.jsp\">"
+					+ "<input type=\"submit\" value=\"Back to login\" />"
+					+ "</form>"
+					+ "</html>");
 		}
-		writer.write("<html><h2>" + message + "</h2>"
-				+ "<form action=\"loginform.jsp\">"
-				+ "<input type=\"submit\" value=\"Back to login\" />"
-				+ "</form>"
-				+ "</html>");
-		
 		
 	}
 

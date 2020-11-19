@@ -59,11 +59,6 @@ public class AppDAO {
         return dao_instance; 
     } 
 
-	//does this get used??  I don't think so lol
-//	public Connection getConnection() {
-//		return connection;
-//	}
-
 	public int insertNewUser(User u) {
 		try {
 			insertNewUser.setString(1, u.userName);

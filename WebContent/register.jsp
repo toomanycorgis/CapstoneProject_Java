@@ -11,12 +11,17 @@
     <table style="width: 50%">
         <tr>
             <td>UserName</td>
-            <td><input type="text" name="userName"/>
+            <td><input type="text" name="userName" required/>
             </td></tr>
             
             <tr>
             <td>Password</td>
-            <td><input type="password" name="password"/>
+            <td><input type="password" name="password" required/>
+            </td></tr>
+            
+            <tr>
+            <td>Re-Type Password</td>
+            <td><input type="password" name="password2" required/>
             </td></tr>
             
             <tr>
@@ -31,7 +36,7 @@
             
             <tr>
             <td>Email</td>
-            <td><input type="text" name="email"/>
+            <td><input type="text" name="email" required/>
             </tr>
             
             <tr>
