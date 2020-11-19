@@ -37,7 +37,7 @@ public class DBConnection {
 	//This MUST be changed to your LOCAL MySQL username and password in order for the app to function
 	
 	private static final String dbUser = "root";
-	private static final String dbPassword = "password";
+	private static final String dbPassword = "Programming123!";
 
 	public static Connection getConnectionToDatabase() {
 		Connection connection = null;
