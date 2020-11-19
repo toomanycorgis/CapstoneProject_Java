@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -36,18 +37,23 @@ public class UserRegister extends HttpServlet{
 		User user = null;
 		user = factory.createUser(userType, userName, firstName, lastName, email, password);
 		
-		String message;
+		String message = "";
 		
-		if (dao.userExists(userName)){
-			message = "Username already in use, new account not created.";
-		} else {
-			int rows = dao.insertNewUser(user);
-			
-			if(rows==0) { //error message throws
-				message="an error occurred";
+		try {
+			if (dao.userExists(userName)){
+				message = "Username already in use, new account not created.";
 			} else {
-				message = "User added successfully. " + rows + " rows affected"; //adds user & prints console message confirming
+				int rows = dao.insertNewUser(user);
+				
+				if(rows==0) { //error message throws
+					message="an error occurred";
+				} else {
+					message = "User added successfully. " + rows + " rows affected"; //adds user & prints console message confirming
+				}
 			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		writer.write("<html><h2>" + message + "</h2>"
 				+ "<form action=\"loginform.jsp\">"
