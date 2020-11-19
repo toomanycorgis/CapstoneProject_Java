@@ -5,6 +5,7 @@ package users;
 public class Student extends User implements Observer{
 	
 	private int studentID;
+	
 
 	public Student(String userName, String firstName, String lastName, String email, String password) {
 		super(userName, firstName, lastName, email, password);
@@ -20,10 +21,12 @@ public class Student extends User implements Observer{
 	}
 
 	@Override
-	public void update(String content) {
-		System.out.println("New content observed: " + content);
+	public void update() {
+		System.out.println("New content has been added");
 		
 	}
+
+	
 }
 
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Course implements Subject{
+	private String content;
 	
 	final List<Observer> subscribers = new ArrayList<>(); 
 	
@@ -20,9 +21,9 @@ public class Course implements Subject{
 	  
 	  @Override
 	  public void notifySubscribers() {
-		  System.out.println("new post added");
-		  for(Observer subscriber: subscribers) {
-			  subscriber.update("post update"); 
+		  System.out.println("new content added");
+		  for(Observer subscriber: subscribers){
+			  subscriber.update(); 
 		  }  
 
 	  }
@@ -31,5 +32,8 @@ public class Course implements Subject{
 		  System.out.println("Here is some new content: " + content);
 		  notifySubscribers();
 	  }
+	  
+	
+	 
  
 }
