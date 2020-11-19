@@ -81,6 +81,7 @@ public class AppDAO {
 		}
 	}
 
+	//gets a DB record of a user as a ResultSet
 	public  ResultSet getUser(String userName) {
 		try {
 			getUser.setString(1, userName);
@@ -91,6 +92,15 @@ public class AppDAO {
 		}
 	}
 	
+	//returns whether or not that user exists in the DB
+	public boolean userExists(String userName) {
+		if (getUser(userName) != null) {
+			return true;
+		}
+		else return false;
+	}
+	
+	//returns a user object of a DB record
 	public User getUserObject(String userName) throws SQLException {
 
 		UserFactory factory = new UserFactory();
