@@ -26,4 +26,14 @@
 <url-pattern>/user_register</url-pattern>
 </servlet-mapping>
 
+<servlet>
+<servlet-name>PasswordRecovery</servlet-name>
+<servlet-class>PasswordRecovery</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>PasswordRecovery</servlet-name>
+<url-pattern>/password_recovery</url-pattern>
+</servlet-mapping>
+
 </web-app>
