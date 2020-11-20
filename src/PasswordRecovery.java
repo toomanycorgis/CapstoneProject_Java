@@ -50,8 +50,11 @@ public class PasswordRecovery extends HttpServlet {
 		try {
 			if(dao.userExists(username)) {
 				String password = dao.getUserObject(username).getPassword();
+				String email = dao.getUserObject(username).getEmail();
+				String content = "The password for account " + username + " is: " + password;
+				SendMail.send(email, "Password Recovery", content);
 				PrintWriter writer = response.getWriter();
-				writer.write("The password for " + username + " is: " + password + " --- don't tell anyone!!");
+				writer.write("A recovery email containing your password has been sent to the email address on file for " + username + ".");
 				RequestDispatcher req = request.getRequestDispatcher("password_recovery.jsp");
 				response.setContentType("text/html");
 				req.include(request, response);

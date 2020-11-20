@@ -25,6 +25,9 @@ public class DBTest {
 		
 		System.out.println(appDAO.userExists("TestTeacher"));
 		System.out.println(appDAO.userExists("kasjdhksdjfbidsjhf"));
+		
+		//test SendMail ---- enter your own email to test it out ------
+		SendMail.send("example@example.com", "test", "this is a test");
 	}
 
 }
