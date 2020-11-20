@@ -44,11 +44,12 @@ public class CourseBuilder {
 	public CourseBuilder setClassSize(int classSize) {
 	this.classSize = classSize; 
 	return this;
+	}
 
 
 	public Course build() {
-	return new Course(teachFirstName, teachLastName, section, courseName, department, classSize);
+	return new Course();
 	}
-	}
+	
 
 }
