@@ -95,6 +95,7 @@ public class UserLogin extends HttpServlet {
 					PrintWriter writer = response.getWriter();
 					writer.write("Incorrect username or password!");
 					RequestDispatcher req = request.getRequestDispatcher("loginform.jsp");
+					response.setContentType("text/html");
 					req.include(request, response);
 				}
 			} else { //if the username does not exist in the database
