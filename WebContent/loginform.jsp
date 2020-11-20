@@ -106,6 +106,13 @@
 	    <button type="submit" value="Register here">Register Here</button>
 	    </div>
 	</form>
+	
+	<br>
+	<form action="password_recovery.jsp">
+		<div class="register1">
+	    <button type="submit" value="Recover Password">Recover Password</button>
+	    </div>
+	</form>
 
 </body>
 </html>

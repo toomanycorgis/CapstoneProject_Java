@@ -5,6 +5,10 @@ import dao.AppDAO;
 import users.Teacher;
 import users.User;
 
+/*
+ * this class is not visible from the app and serves as our test class for database & email function 
+ */
+
 public class DBTest {
 
 	public static void main(String[] args) throws SQLException {
@@ -25,6 +29,9 @@ public class DBTest {
 		
 		System.out.println(appDAO.userExists("TestTeacher"));
 		System.out.println(appDAO.userExists("kasjdhksdjfbidsjhf"));
+		
+		//test SendMail ---- enter your own email to test it out ------
+		SendMail.send("jennifer.olenic@gmail.com", "test", "this is a test");
 	}
 
 }

@@ -7,6 +7,8 @@ package users;
  * @author ariella
  *
  */
+
+//Factory for creation of users 
 public class UserFactory {
 	
 	public User createUser(String userType, String userName, String firstName, String lastName, String email, String password) {

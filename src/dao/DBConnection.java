@@ -37,19 +37,21 @@ public class DBConnection {
 	//This MUST be changed to your LOCAL MySQL username and password in order for the app to function
 	
 	private static final String dbUser = "root";
-	private static final String dbPassword = "password";
+	private static final String dbPassword = "Houston2003!";
 
 	public static Connection getConnectionToDatabase() {
 		Connection connection = null;
 
-		try { //if connection succeeds 
+		//if connection succeeds 
+		try { 
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/capstone", dbUser, dbPassword);
 			System.out.println("MySQL JDBC Driver Registered!");
 
 		}
 
-		catch (SQLException e) { //if connection to DB fails, it throws an error
+		//if connection to DB fails, it throws an error
+		catch (SQLException e) { 
 			System.out.println("Connection Failed!  Check output console");
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
@@ -57,13 +59,13 @@ public class DBConnection {
 			e.printStackTrace();
 		}
 
+		//if connection is good, provide a success message in console
 		if (connection != null) {
-			System.out.println("Connection made to DB!"); //if connection is good, provide a success message in console
+			System.out.println("Connection made to DB!"); 
 		}
 		return connection;
 	}
-
+}
 //	public static void main(String[] args) {
 //		getConnectionToDatabase();
 //	}
-}

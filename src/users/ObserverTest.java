@@ -1,5 +1,6 @@
 package users;
 
+//test class for the Observer pattern
 public class ObserverTest {
 
 	/*public static void main(String[] args) {
