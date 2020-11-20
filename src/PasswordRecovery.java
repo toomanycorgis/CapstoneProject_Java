@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -40,8 +38,8 @@ public class PasswordRecovery extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
+		
 		//get username from form
 		String username = request.getParameter("userName");
 		AppDAO dao = AppDAO.getInstance(); //instantiating object from appDAO class in order to check password again DB
@@ -56,13 +54,13 @@ public class PasswordRecovery extends HttpServlet {
 				PrintWriter writer = response.getWriter();
 				writer.write("A recovery email containing your password has been sent to the email address on file for " + username + ".");
 				RequestDispatcher req = request.getRequestDispatcher("password_recovery.jsp");
-				response.setContentType("text/html");
+				response.setContentType("text/html"); //this sets the content types for the RequestDispatcher to ensure correct browser visibility
 				req.include(request, response);
 			} else {
 				PrintWriter writer = response.getWriter();
 				writer.write(username + " does not exist in the database.  Try creating a new account!");
 				RequestDispatcher req = request.getRequestDispatcher("password_recovery.jsp");
-				response.setContentType("text/html");
+				response.setContentType("text/html"); //this sets the content types for the RequestDispatcher to ensure correct browser visibility
 				req.include(request, response);
 			}
 		} catch (SQLException e) {

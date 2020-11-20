@@ -5,6 +5,10 @@ import dao.AppDAO;
 import users.Teacher;
 import users.User;
 
+/*
+ * this class is not visible from the app and serves as our test class for database & email function 
+ */
+
 public class DBTest {
 
 	public static void main(String[] args) throws SQLException {

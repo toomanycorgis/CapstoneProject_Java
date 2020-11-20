@@ -7,7 +7,7 @@ public class Teacher extends User {
 
 	public Teacher(String userName, String firstName, String lastName, String email, String password) {
 		super(userName, firstName, lastName, email, password);
-		super.setRole("T");
+		super.setRole("T"); //from factory
 	}
 
 	public int getTeacherID() {

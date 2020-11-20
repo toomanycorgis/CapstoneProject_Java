@@ -3,6 +3,7 @@ package users;
 import java.util.ArrayList;
 import java.util.List;
 
+//Course class that tracks class participants
 public class Course implements Subject{
 	private String content;
 	
@@ -11,7 +12,7 @@ public class Course implements Subject{
 	  @Override
 	  public void addSubscribers(Observer subscriber) {
 	  subscribers.add(subscriber);
-	  System.out.println(subscriber + " has started following the course");
+	  System.out.println(subscriber + " has started following the course"); //prints are placeholders to help with testing
 	  }
 	    	    
 	  public void removeSubscribers(Observer subscriber) {
@@ -32,8 +33,4 @@ public class Course implements Subject{
 		  System.out.println("Here is some new content: " + content);
 		  notifySubscribers();
 	  }
-	  
-	
-	 
- 
 }
