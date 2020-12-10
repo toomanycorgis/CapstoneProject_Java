@@ -82,6 +82,7 @@ a:hover {
 	border-left: 5px solid lightpink;
 	background-color: honeydew;
 	padding: 10px 20px;
+	position: relative;
 }
 
 input[type = submit] {
@@ -121,10 +122,12 @@ button {
   background-color: #8080ff;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: auto;
+  border-radius: 25px;
+  position:absolute; 
+  bottom: 70pt;
+  left: 370pt;
 }
 
 form {

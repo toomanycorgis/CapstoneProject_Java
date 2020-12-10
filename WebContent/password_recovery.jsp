@@ -5,11 +5,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Password Recovery</title>
+<link rel="stylesheet" type="text/css" href="Regstyle.css">
 </head>
 <body>
 	<h3>Password Recovery</h3>
 	<form action ="password_recovery" method="post">
-	    <table style="width: 50%">
+	    <table style="width: 20%">
 	        <tr>
 	            <td>UserName</td>
 	            <td><input type="text" name="userName" required/>

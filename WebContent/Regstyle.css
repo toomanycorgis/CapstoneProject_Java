@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+
+
+body {
+	margin: 10px;
+  	font-family: Georgia;
+  	background-color: whitesmoke;
+}
+
+input[type = submit] {
+	 width: auto;
+	 padding: 12px 10px;
+	 margin: 8px 0;
+     background-color: #8080ff;
+     color: white;
+}
