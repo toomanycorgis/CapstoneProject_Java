@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="Regstyle.css">
 </head>
 <body>
-<form action ="user_register" method="post">
+<form action ="user_registration.jsp" method="post">
     <table style="width: 50%">
         <tr>
             <td>UserName</td>
