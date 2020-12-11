@@ -52,27 +52,21 @@ pageEncoding="ISO-8859-1"%>
 		
 	<form action="/action_page.php">
 	  <a><h5>Send a message to your teacher:</h5></a></td></tr>
-	<textarea id="txt" name="w3review" rows="15" cols="70">
-	</textarea>
-	  <td><input type ="submit" class = "submitbtn" value="Send"/></td>
+			<textarea id="txt" name="w3review" rows="12" cols="70">
+			</textarea>
 	</form>
+	  <td><input type ="submit" class = "submitbtn" value="Send"/></td>
 		<br>
 	</div>
 	
-	<button type = "button" class = "classrooms" a href="sample_classroom.html">To Classroom</button>
-	<button type = "button" class = "logoutbtn" a href="logout.jsp">Logout</button>
+	<div class="listfunctions">
+		<a href="sample_classroom.html" class = "classrooms">To Classroom</a>
+		<a href="logout.jsp" class = "logoutbtn">Logout</a>
+	</div>
 	
-	<a><h3>Your Courses:</h3></a>
-	
-	<table id='table_id'>
-	        <th>Fall 2020:</th>
-	    		
-		            <td><button type="button" value="Class 1">Class 1</button></td>
-		            <td><button type="button" value="Class 2">Class 2</button></td>
-		            <td><button type="button" value="Class 3">Class 3</button></td>
-		            <td><button type="button" value="Class 4">Class 4</button></td>
-		        
-	    </table>
+	<div class="footer">
+		<h5>Generic Footer Business ©2020</h5>
+	</div>
 
 </body>
 </html>

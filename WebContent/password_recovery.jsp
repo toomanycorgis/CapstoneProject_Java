@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Password Recovery</title>
+<link rel="stylesheet" type="text/css" href="Regstyle.css">
 </head>
 <body>
 	<h3>Password Recovery</h3>
