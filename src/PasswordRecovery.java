@@ -44,7 +44,7 @@ public class PasswordRecovery extends HttpServlet {
 		String username = request.getParameter("userName");
 		AppDAO dao = AppDAO.getInstance(); //instantiating object from appDAO class in order to check password again DB
 		
-		//check if username is valid.  If so, print password (we're top security experts here).  If not, let user know.
+		//check if username is valid.  If so, send password for username to email on file
 		try {
 			if(dao.userExists(username)) {
 				String password = dao.getUserObject(username).getPassword();
