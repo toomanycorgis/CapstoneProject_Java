@@ -16,15 +16,6 @@
 <url-pattern>/user_login</url-pattern>
 </servlet-mapping>
 
-<servlet>
-<servlet-name>UserRegister</servlet-name>
-<servlet-class>UserRegister</servlet-class>
-</servlet>
-
-<servlet-mapping>
-<servlet-name>UserRegister</servlet-name>
-<url-pattern>/user_register</url-pattern>
-</servlet-mapping>
 
 <servlet>
 <servlet-name>PasswordRecovery</servlet-name>
