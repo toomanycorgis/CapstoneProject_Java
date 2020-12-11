@@ -52,10 +52,10 @@ pageEncoding="ISO-8859-1"%>
 		
 	<form action="/action_page.php">
 	  <a><h5>Send a message to your teacher:</h5></a></td></tr>
-	<textarea id="txt" name="w3review" rows="15" cols="70">
+	<textarea id="txt" name="w3review" rows="12" cols="70">
 	</textarea>
-	  <td><input type ="submit" class = "submitbtn" value="Send"/></td>
 	</form>
+	 <td><input type ="submit" class = "submitbtn" value="Send"/></td>
 		<br>
 	</div>
 	
