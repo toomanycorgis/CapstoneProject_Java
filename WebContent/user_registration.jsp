@@ -33,7 +33,11 @@
 	String lastName = request.getParameter("lastName");
 	String email = request.getParameter("email");
 	String userType = request.getParameter("role");
+
+
 	if (password.contentEquals(password2)) {
+
+
 		UserFactory factory = new UserFactory();
 		User user = null;
 		user = factory.createUser(userType, userName, firstName, lastName, email, password);
@@ -42,6 +46,7 @@
 		message = "Username already in use, new account not created.";
 			} else {
 		int rows = dao.insertNewUser(user);
+
 		if (rows == 0) { //error message throws
 			message = "an error occurred";
 		} else {
