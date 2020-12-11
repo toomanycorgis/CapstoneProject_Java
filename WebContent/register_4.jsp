@@ -59,8 +59,8 @@ pageEncoding="ISO-8859-1"%>
 		<br>
 	</div>
 	
-	<button type = "button" class = "classrooms" a href="sample_classroom.html">To Classroom</button>
-	<button type = "button" class = "logoutbtn" a href="logout.jsp">Logout</button>
+	<a href="sample_classroom.html" class = "classrooms">To Classroom</a>
+	<a href="logout.jsp" class = "logout">Logout</a>
 	
 	<a><h3>Your Courses:</h3></a>
 	
