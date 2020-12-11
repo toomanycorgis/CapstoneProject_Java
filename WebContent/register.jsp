@@ -5,9 +5,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>User Registration</title>
+<link rel="stylesheet" type="text/css" href="LoginLogoutStyle.css">
 </head>
 <body>
-<form action ="user_register" method="post">
+<form action ="user_registration.jsp" method="post">
     <table style="width: 50%">
         <tr>
             <td>UserName</td>
