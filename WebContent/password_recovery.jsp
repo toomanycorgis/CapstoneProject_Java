@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Password Recovery</title>
+<link rel="stylesheet" type="text/css" href="LoginLogoutStyle.css">
 </head>
 <body>
 	<h3>Password Recovery</h3>
