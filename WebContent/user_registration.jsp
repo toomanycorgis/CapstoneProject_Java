@@ -34,9 +34,7 @@
 	String email = request.getParameter("email");
 	String userType = request.getParameter("role");
 
-
 	if (password.contentEquals(password2)) {
-
 
 		UserFactory factory = new UserFactory();
 		User user = null;
