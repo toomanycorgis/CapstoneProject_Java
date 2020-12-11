@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>User Registration</title>
-<link rel="stylesheet" type="text/css" href="LoginLogoutStyle.css">
+<link rel="stylesheet" type="text/css" href="Regstyle.css">
 </head>
 <body>
 
